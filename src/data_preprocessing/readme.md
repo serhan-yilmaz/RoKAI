@@ -9,7 +9,7 @@ For phosphosite-phosphosite interaction network, we use the co-evolution and str
 ### 4 - Combining (mapping) network data 
 To obtain the network data used in RoKAI, we use a [MATLAB script](combine_functional_networks.m) to combine the kinase-substrate annotations from PhosphositePlus protein-protein interactions from STRING, and phosphosite level interactions from PTMcode. For mapping these datasets together, we employ several steps:
 ##### Mapping Ensembl protein identifiers to UniprotKb
-In order to create the kinase-kinase interaction network, we map the string protein identifiers (ENSP) to psp kinase identifiers (UniprotKB). We obtain the ensembl protein to uniprotkb id mappings using [Uniprot mapping tool](https://www.uniprot.org/uploadlists/). The [results of the query](../../data/string_proteins_uniprotkb.tab) are provided with the repository.
+In order to create the kinase-kinase interaction network, we map the string protein identifiers (ENSP) to psp kinase identifiers (UniprotKB). We obtain the ensembl protein to uniprotkb id mappings using [Uniprot mapping tool](https://www.uniprot.org/uploadlists/). The [results of the query (run on 2020-04-04)](../../data/string_proteins_uniprotkb.tab) are provided with the repository.. 
 
 ### 5 - Preparing sample phospho-proteomics data
 

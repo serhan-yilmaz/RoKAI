@@ -11,7 +11,8 @@
 % Pan, Cuiping, et al. "Global effects of kinase inhibitors on  
 %  signaling networks revealed by quantitative phosphoproteomics." 
 %  Molecular & Cellular Proteomics 8.12 (2009): 2796-2808.
-filename = 'sample_phospho_data.csv';
+dataPath = '../../data/';
+filename = [dataPath, 'sample_phospho_data.csv'];
 ds = tabularTextDatastore(filename, 'delimiter', ',');
 T = ds.readall();
 
@@ -25,7 +26,9 @@ Proteins = unique(T.Protein);
 % mapping tool: https://www.uniprot.org/uploadlists/
 % The 'phospho_data_proteins_uniprotkb.tab' contains the results of the 
 % query run on 2020-04-13, using the ids given in 'Proteins' as input. 
-ds = tabularTextDatastore('phospho_data_proteins_uniprotkb.tab', ...
+dataPath = '../../data/';
+filepath = [dataPath, 'phospho_data_proteins_uniprotkb.tab'];
+ds = tabularTextDatastore(filepath, ...
     'FileExtensions', '.tab');
 ds.TextscanFormats = repmat({'%q'}, 1, length(ds.VariableNames));
 Mapping = ds.readall();
@@ -43,7 +46,8 @@ T = T(b, :);
 T.Protein = Mapping.Entry(ib(b), :);
 
 % Save the results
-save('sample_phospho_data_mapped.mat', 'T');
+outputPath = '../../data/processed/';
+save([outputPath, 'sample_phospho_data.mat'], 'T');
 
 
 

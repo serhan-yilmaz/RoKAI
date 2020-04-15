@@ -11,7 +11,7 @@
 % Pan, Cuiping, et al. "Global effects of kinase inhibitors on  
 %  signaling networks revealed by quantitative phosphoproteomics." 
 %  Molecular & Cellular Proteomics 8.12 (2009): 2796-2808.
-filename = 'phospho_data_demo.csv';
+filename = 'sample_phospho_data.csv';
 ds = tabularTextDatastore(filename, 'delimiter', ',');
 T = ds.readall();
 
@@ -43,7 +43,7 @@ T = T(b, :);
 T.Protein = Mapping.Entry(ib(b), :);
 
 % Save the results
-save('phospho_data_demo_mapped.mat', 'T');
+save('sample_phospho_data_mapped.mat', 'T');
 
 
 

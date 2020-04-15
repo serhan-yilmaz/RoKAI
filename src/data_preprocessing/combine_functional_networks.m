@@ -112,7 +112,7 @@ KS = PSP.KS;
 Site = PSP.Site;
 
 % Save the results
-save('network_data.mat', 'KS', 'Site', ...
+save('rokai_network_data.mat', 'KS', 'Site', ...
     'Kinase', 'Kinase_PPI', 'Wcoev', 'Wsd');
 
 

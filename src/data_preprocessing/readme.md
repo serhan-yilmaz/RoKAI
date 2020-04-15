@@ -8,9 +8,10 @@ For the kinase-kinase interactions, we use the protein-protein interaction (PPI)
 For phosphosite-phosphosite interaction network, we use the co-evolution and structure distance evidence provided by [PTMcode](https://ptmcode.embl.de/data.cgi). For co-evolution network, we only use sites with relative residue conservation score (rRCS) greater than 90%. See [PTMcode help page](https://ptmcode.embl.de/help.cgi) and the [MATLAB script used to parse PTMcode data](load_ptmcode_networks.m) for more information.
 ### 4 - Combining (mapping) network data 
 To obtain the network data used in RoKAI, we use a [MATLAB script](combine_functional_networks.m) to combine the kinase-substrate annotations from PhosphositePlus protein-protein interactions from STRING, and phosphosite level interactions from PTMcode. For mapping these datasets together, we employ several steps:
-##### Mapping Ensembl protein identifiers to UniprotKb
-In order to create the kinase-kinase interaction network, we map the string protein identifiers (ENSP) to psp kinase identifiers (UniprotKB). We obtain the ensembl protein to uniprotkb id mappings using [Uniprot mapping tool](https://www.uniprot.org/uploadlists/). The [results of the query (run on 2020-04-04)](../../data/string_proteins_uniprotkb.tab) are provided with the repository.. 
-
+#### Mapping Ensembl protein identifiers to UniprotKb
+In order to create the kinase-kinase interaction network, we map the string protein identifiers (ENSP) to psp kinase identifiers (UniprotKB). We obtain the ensembl protein to uniprotkb id mappings using [Uniprot mapping tool](https://www.uniprot.org/uploadlists/). The [results of the query](../../data/string_proteins_uniprotkb.tab) are provided with the repository.
+#### Mapping PTMcode Gene Identifiers to UniprotKb
+In order to map the phosphosite level interaction network of PTMcode to the known phosphosites in PSP, we first map the gene identifiers used in PTMcode to PSP protein identifiers (UniprotKB). We obtain the gene name and ensg to uniprotkb id mappings using [Uniprot mapping tool](https://www.uniprot.org/uploadlists/). The [results of the query](../../data/ptmcode_genes_uniprotkb.tab) are provided with the repository.
 ### 5 - Preparing sample phospho-proteomics data
 
 

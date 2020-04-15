@@ -3,7 +3,7 @@
 % (1) Within-Proteins: 'PTMcode2_associations_within_proteins.txt'
 % (2) Between-Proteins: 'PTMcode2_associations_between_proteins.txt'
 % Due to their excessive file size, they are not included in the
-% repository. But, they are available at: 
+% repository. But, they are available at:   
 % https://ptmcode.embl.de/data.cgi
 %% Load PTMcode Within-Protein Associations
 filename = ['D:/Archive/Phospho/data/PTMcode/', ...
@@ -111,7 +111,9 @@ Site.GeneIndex = geneIndices;
 Site.Residue = residues;
 
 % Save the results
-save('ptmcode_networks.mat', 'Wcoev', 'Wsd', 'Site', 'Gene');
+outputFolder =  '../../data/processed/';
+save([outputFolder, 'ptmcode_networks.mat'], ...
+    'Wcoev', 'Wsd', 'Site', 'Gene');
 %%
 
 

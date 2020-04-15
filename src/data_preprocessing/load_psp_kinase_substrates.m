@@ -1,7 +1,8 @@
 %% Load Kinase-Substrate network
 % We obtain the kinase-substrate annotations from PhosphositePlus at:
 % https://www.phosphosite.org/staticDownloads
-filename = 'Kinase_Substrate_Dataset';
+dataFolder = '../../data/';
+filename = [dataFolder, 'Kinase_Substrate_Dataset'];
 ds = datastore(filename);
 ds.TextscanFormats = repmat({'%q'}, 1, length(ds.VariableNames));
 KStable = ds.readall();
@@ -46,7 +47,8 @@ KS = logical(sparse(KStable.KinaseIndex, KStable.SubstrateIndex, ...
 % Due to its excessive file size, 'Phosphorylation_site_dataset'
 % is not included in this repository, but is available at: 
 % https://www.phosphosite.org/staticDownloads
-filename = 'Phosphorylation_site_dataset';
+dataFolder = '../../data/big/';
+filename = [dataFolder, 'Phosphorylation_site_dataset'];
 ds = datastore(filename);
 ds.TextscanFormats = repmat({'%q'}, 1, length(ds.VariableNames));
 Sitetable = ds.readall();
@@ -85,27 +87,16 @@ Msubstrate2site = sparse((1:height(Substrate))', ...
 KS = logical(KS * Msubstrate2site);
 
 % Create a list of unique proteins
-Protein = unique(PSP.Site.Protein);
+Protein = unique(Site.Protein);
 
 % % Remove redundant fields
 clear KStable Sitetable
 
 % Save the results
-save('psp_sites_and_kinase_substrate_network.mat', ...
+outputFolder =  '../../data/processed/';
+save([outputFolder, 'psp_sites_and_kinase_substrate_network.mat'], ...
     'Protein', 'Site', 'Kinase', 'KS');
-
-
-
-
-
-
-
-
-
-
-
-
-
+%%
 
 
 

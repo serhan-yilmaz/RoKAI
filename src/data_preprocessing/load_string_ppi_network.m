@@ -3,7 +3,8 @@
 % Due to its excessive file size, '9606.protein.links.v11.0.txt'
 % is not included in this repository, but is available at: 
 % https://string-db.org/cgi/download.pl
-filename = '9606.protein.links.v11.0.txt';
+dataFolder = '../../data/big/';
+filename = [dataFolder, '9606.protein.links.v11.0.txt'];
 ds = datastore(filename);
 STRING_PPI = ds.readall();
 
@@ -17,7 +18,8 @@ PPI = sparse(proteinIndices1, proteinIndices2, ...
 clear STRING_PPI proteinIndices1 proteinIndices2
 
 % Save the results
-save('string_ppi_network.mat', 'Proteins', 'PPI');
+outputFolder =  '../../data/processed/';
+save([outputFolder, 'string_ppi_network.mat'], 'Proteins', 'PPI');
 %%
 
 

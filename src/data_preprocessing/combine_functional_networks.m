@@ -1,16 +1,17 @@
 %% Load networks
 % Kinase substrate annotations obtained from PhosphositePlus. 
 % See 'load_psp_kinase_substrates.m' for more information. 
-PSP = load('psp_sites_and_kinase_substrate_network.mat');
+dataFolder = '../../data/processed/';
+PSP = load([dataFolder, 'psp_sites_and_kinase_substrate_network.mat']);
 
 % Protein-Protein Interaction (PPI) network obtained from STRING.
 % See 'load_string_ppi_network.m' for more information. 
-STRING = load('string_ppi_network.mat');
+STRING = load([dataFolder, 'string_ppi_network.mat']);
 
 % Phosphosite-level interaction network based on co-evolution and/or 
 % structure distance evidence obtained from PTMcode. 
 % See 'load_ptmcode_networks.m' for more information. 
-PTMcode = load('ptmcode_networks.mat');
+PTMcode = load([dataFolder, 'ptmcode_networks.mat']);
 %% Mapping Ensembl protein identifiers to UniprotKb
 % In order to create the kinase-kinase interaction network, we map the
 % string protein identifiers (ENSP) to psp kinase identifiers (UniprotKB).
@@ -18,8 +19,9 @@ PTMcode = load('ptmcode_networks.mat');
 % mapping tool: https://www.uniprot.org/uploadlists/
 % The 'string_proteins_uniprotkb.tab' contains the results of the query
 % run on 2020-04-04, using the ids given in 'STRING.Proteins' as input. 
-ds = tabularTextDatastore('string_proteins_uniprotkb.tab', ...
-    'FileExtensions', '.tab');
+dataFolder = '../../data/';
+filePath = [dataFolder, 'string_proteins_uniprotkb.tab'];
+ds = tabularTextDatastore(filePath, 'FileExtensions', '.tab');
 ds.TextscanFormats = repmat({'%q'}, 1, length(ds.VariableNames));
 Mapping = ds.readall();
 
@@ -45,8 +47,9 @@ Kinase_PPI = Mkin2ppi * STRING.PPI * Mkin2ppi';
 % Uniprot mapping tool: https://www.uniprot.org/uploadlists/
 % The 'ptmcode_genes_uniprotkb.tab' contains the results of the query
 % run on 2020-04-05, using the ids given in 'PTMcode.Gene' as input. 
-ds = tabularTextDatastore('ptmcode_genes_uniprotkb.tab', ...
-    'FileExtensions', '.tab');
+dataFolder = '../../data/';
+filePath = [dataFolder, 'ptmcode_genes_uniprotkb.tab'];
+ds = tabularTextDatastore(filePath, 'FileExtensions', '.tab');
 ds.TextscanFormats = repmat({'%q'}, 1, length(ds.VariableNames));
 Mapping = ds.readall();
 
@@ -112,8 +115,9 @@ KS = PSP.KS;
 Site = PSP.Site;
 
 % Save the results
-save('rokai_network_data.mat', 'KS', 'Site', ...
-    'Kinase', 'Kinase_PPI', 'Wcoev', 'Wsd');
+outputFolder =  '../../data/processed/';
+save([outputFolder, 'rokai_network_data.mat'], ...
+    'KS', 'Site', 'Kinase', 'Kinase_PPI', 'Wcoev', 'Wsd');
 
 
 

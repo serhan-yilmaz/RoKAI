@@ -1,5 +1,5 @@
 ## Data Preprocessing
-Here, we prepare the functional networks and phosphorylation data utilized in [RoKAI demo](../../demo_rokai.m).
+Here, we prepare the functional networks and the sample phospho-proteomics data utilized in [RoKAI demo](../../demo_rokai.m).
 ### 1 - Loading known phosphosites and kinase-substrate annotations
 We obtain a list of known phosphosites and known kinase-substrate annotations from [PhosphositePlus (PSP)](https://www.phosphosite.org/staticDownloads). We use a [MATLAB script](load_psp_kinase_substrates.m) to parse PSP data and save as a compressed data (.mat) file for use in RoKAI.
 ### 2 - Loading protein-protein interaction network
@@ -9,19 +9,14 @@ For phosphosite-phosphosite interaction network, we use the co-evolution and str
 ### 4 - Combining (mapping) network data 
 To obtain the network data used in RoKAI, we use a [MATLAB script](combine_functional_networks.m) to combine the kinase-substrate annotations from PhosphositePlus protein-protein interactions from STRING, and phosphosite level interactions from PTMcode. For mapping these datasets together, we employ several steps:
 #### Mapping Ensembl protein identifiers to UniprotKb
-In order to create the kinase-kinase interaction network, we map the string protein identifiers (ENSP) to psp kinase identifiers (UniprotKB). We obtain the ensembl protein to uniprotkb id mappings using [Uniprot mapping tool](https://www.uniprot.org/uploadlists/). The [results of the query](../../data/string_proteins_uniprotkb.tab) are provided with the repository.
+In order to create the kinase-kinase interaction network, we map the Ensembl protein identifiers (ENSP) used by STRING to PSP kinase identifiers (UniprotKB). We obtain the Ensembl protein to UniprotKB id mappings using [Uniprot mapping tool](https://www.uniprot.org/uploadlists/). The [results of the query](../../data/string_proteins_uniprotkb.tab) are provided with the repository.
 #### Mapping PTMcode Gene Identifiers to UniprotKb
-In order to map the phosphosite level interaction network of PTMcode to the known phosphosites in PSP, we first map the gene identifiers used in PTMcode to PSP protein identifiers (UniprotKB). We obtain the gene name and ensg to uniprotkb id mappings using [Uniprot mapping tool](https://www.uniprot.org/uploadlists/). The [results of the query](../../data/ptmcode_genes_uniprotkb.tab) are provided with the repository.
+In order to map the phosphosite level interaction network of PTMcode to the known phosphosites in PSP, we first map the gene identifiers used in PTMcode to PSP protein identifiers (UniprotKB). We obtain the gene symbol and ENSG to UniprotKB id mappings using [Uniprot mapping tool](https://www.uniprot.org/uploadlists/). The [results of the query](../../data/ptmcode_genes_uniprotkb.tab) are provided with the repository.
 ### 5 - Preparing sample phospho-proteomics data
-
-
-
-
-
-
-
-
-
+For use in the demo, we utilize the prospho-proteomics data within [the Atlas compiled by Ochoa et al. (2016)](http://phosfate.com/download.html). Here, we include only a subset of the data, a single experiment of Pan et al. (2009) comparing EGF treated samples with the untreated. We provide [this sample data](../../data/phospho_data_demo.csv) with the repository.
+### References
+- Ochoa, David, et al. "An atlas of human kinase regulation." Molecular systems biology 12.12 (2016).
+- Pan, Cuiping, et al. "Global effects of kinase inhibitors on signaling networks revealed by quantitative phosphoproteomics." Molecular & Cellular Proteomics 8.12 (2009): 2796-2808.
 
 
 

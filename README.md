@@ -1,4 +1,3 @@
-%# RoKAI: Robust Inference of Kinase Activity
 ![RoKAI App](rokai_app_logo.png "RoKAI App")
 
 ## Getting Started

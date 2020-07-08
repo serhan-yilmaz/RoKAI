@@ -3,7 +3,7 @@
 % http://phosfate.com/download.html
 % Here, we include only a subset of the data, a single experiment of 
 % Pan et al. (2009) comparing EGF treated samples with the untreated.
-% This data is provided with the repository in 'phospho_data_demo.csv'.
+% This data is provided with the repository in 'sample_phospho_data.csv'.
 % 
 % References:
 % Ochoa, David, et al. "An atlas of human kinase regulation." 
@@ -12,7 +12,7 @@
 %  signaling networks revealed by quantitative phosphoproteomics." 
 %  Molecular & Cellular Proteomics 8.12 (2009): 2796-2808.
 dataPath = '../../data/';
-filename = [dataPath, 'sample_phospho_data.csv'];
+filename = [dataPath, 'sample_phospho_data_ensembl.csv'];
 ds = tabularTextDatastore(filename, 'delimiter', ',');
 T = ds.readall();
 
@@ -26,7 +26,7 @@ Proteins = unique(T.Protein);
 % mapping tool: https://www.uniprot.org/uploadlists/
 % The 'phospho_data_proteins_uniprotkb.tab' contains the results of the 
 % query run on 2020-04-13, using the ids given in 'Proteins' as input. 
-dataPath = '../../data/';
+dataPath = '../../data/raw/';
 filepath = [dataPath, 'phospho_data_proteins_uniprotkb.tab'];
 ds = tabularTextDatastore(filepath, ...
     'FileExtensions', '.tab');
@@ -46,8 +46,7 @@ T = T(b, :);
 T.Protein = Mapping.Entry(ib(b), :);
 
 % Save the results
-outputPath = '../../data/processed/';
-save([outputPath, 'sample_phospho_data.mat'], 'T');
-
-
+outputPath = '../../data/';
+% save([outputPath, 'sample_phospho_data.mat'], 'T');
+writetable(T, [outputPath, 'sample_phospho_data_uniprotkb.csv']);
 

@@ -1,7 +1,7 @@
 %% Load Kinase-Substrate network
 % We obtain the kinase-substrate annotations from PhosphositePlus at:
 % https://www.phosphosite.org/staticDownloads
-dataFolder = '../../data/';
+dataFolder = '../../data/raw/';
 filename = [dataFolder, 'Kinase_Substrate_Dataset'];
 ds = datastore(filename);
 ds.TextscanFormats = repmat({'%q'}, 1, length(ds.VariableNames));

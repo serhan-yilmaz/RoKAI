@@ -6,8 +6,8 @@
 % repository. But, they are available at:   
 % https://ptmcode.embl.de/data.cgi
 %% Load PTMcode Within-Protein Associations
-filename = ['D:/Archive/Phospho/data/PTMcode/', ...
-         'PTMcode2_associations_within_proteins.txt'];
+folder = '../../data/big/';
+filename = [folder, 'PTMcode2_associations_within_proteins.txt'];
 ds = tabularTextDatastore(filename, 'delimiter', '\t');
 ds.VariableNames{1} = 'Protein';
 T1 = ds.readall();
@@ -27,8 +27,8 @@ T1.PTM2 = [];
 T1.Species = [];
 T1.same_residue_competition__evidence = [];
 %% Load Between-Protein Associations
-filename = ['D:/Archive/Phospho/data/PTMcode/', ...
-         'PTMcode2_associations_between_proteins.txt'];
+folder = '../../data/big/';
+filename = [folder, 'PTMcode2_associations_between_proteins.txt'];
 ds = tabularTextDatastore(filename, 'delimiter', '\t');
 ds.VariableNames{1} = 'Protein1';
 T2 = ds.readall();

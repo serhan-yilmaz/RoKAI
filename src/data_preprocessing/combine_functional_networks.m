@@ -19,7 +19,7 @@ PTMcode = load([dataFolder, 'ptmcode_networks.mat']);
 % mapping tool: https://www.uniprot.org/uploadlists/
 % The 'string_proteins_uniprotkb.tab' contains the results of the query
 % run on 2020-04-04, using the ids given in 'STRING.Proteins' as input. 
-dataFolder = '../../data/';
+dataFolder = '../../data/raw/';
 filePath = [dataFolder, 'string_proteins_uniprotkb.tab'];
 ds = tabularTextDatastore(filePath, 'FileExtensions', '.tab');
 ds.TextscanFormats = repmat({'%q'}, 1, length(ds.VariableNames));
@@ -47,7 +47,7 @@ Kinase_PPI = Mkin2ppi * STRING.PPI * Mkin2ppi';
 % Uniprot mapping tool: https://www.uniprot.org/uploadlists/
 % The 'ptmcode_genes_uniprotkb.tab' contains the results of the query
 % run on 2020-04-05, using the ids given in 'PTMcode.Gene' as input. 
-dataFolder = '../../data/';
+dataFolder = '../../data/raw/';
 filePath = [dataFolder, 'ptmcode_genes_uniprotkb.tab'];
 ds = tabularTextDatastore(filePath, 'FileExtensions', '.tab');
 ds.TextscanFormats = repmat({'%q'}, 1, length(ds.VariableNames));
@@ -110,14 +110,32 @@ clear Mpsp2residue Mptmcode2residue
 clear Mprotein_psp2ptmcode Mresidue_psp2ptmcode
 
 % Prepare output 
-Kinase = PSP.Kinase;
-KS = PSP.KS;
-Site = PSP.Site;
+Kinase = table();
+Kinase.KinaseID = PSP.Kinase.ID;
+Kinase.KinaseName = PSP.Kinase.Name;
+Kinase.Gene = PSP.Kinase.Gene;
+
+position = regexprep(PSP.Site.Residue, '[^0-9]', '');
+
+Site = table();
+Site.Identifier = cellstr(join([PSP.Site.Protein, position], '_'));
+Site.Protein = PSP.Site.Protein;
+Site.Position = PSP.Site.Residue;
+Site.Flanking = PSP.Site.Flanking;
+
+NetworkData = struct();
+NetworkData.Site = Site;
+NetworkData.Kinase = Kinase;
+NetworkData.Wkin2site = PSP.KS;
+NetworkData.Wkin2kin = Kinase_PPI;
+NetworkData.Wsite2site_coev = Wcoev;
+NetworkData.Wsite2site_sd = Wsd;
+NetworkData.nSite = height(Site);
+NetworkData.nKinase = height(Kinase);
 
 % Save the results
-outputFolder =  '../../data/processed/';
-save([outputFolder, 'rokai_network_data.mat'], ...
-    'KS', 'Site', 'Kinase', 'Kinase_PPI', 'Wcoev', 'Wsd');
+outputFolder =  '../../data/';
+save([outputFolder, 'rokai_network_data_uniprotkb.mat'], 'NetworkData');
 
 
 

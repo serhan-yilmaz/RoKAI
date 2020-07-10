@@ -17,24 +17,11 @@ function [KT, ST] = rokai(T, NetworkData, varargin)
     param = p.Results;
     
     X = rokai_input_mapping(T, NetworkData, param.Identifier);
-    Wkin2site = NetworkData.Wkin2site;
-    
-    nKinase = size(Wkin2site, 1);
-    nSite = size(X, 1);
-    
-    if(param.IncludePPI)
-        Wkin2kin = NetworkData.Wkin2kin*1e-3;
-    else
-        Wkin2kin = [];
-    end
-    Wsite2site = sparse(nSite, nSite);
-    if(param.IncludeCoevolution)
-        Wsite2site = Wsite2site + NetworkData.Wsite2site_coev;
-    end
-    
-    if(param.IncludeStructureDistance)
-        Wsite2site = Wsite2site + NetworkData.Wsite2site_sd;
-    end
+      
+    [Wkin2site, Wkin2kin, Wsite2site] = rokai_networks(NetworkData, ...
+        'IncludePPI', param.IncludePPI, ...
+        'IncludeCoevolution', param.IncludeCoevolution, ...
+        'IncludeStructureDistance', param.IncludeStructureDistance);
 
     [Xs] = rokai_core(X, Wkin2site, Wkin2kin, Wsite2site, ...
         'KeepMissingSites', param.IncludeMissingSites);

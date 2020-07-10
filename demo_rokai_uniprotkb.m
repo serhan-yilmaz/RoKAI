@@ -1,15 +1,17 @@
-% The input data should contain three columns:
-% - Protein: The Ensembl protein (ENSP) identifier
+%% Running RoKAI with UniprotKB protein identifiers
+% In this example, we will run RoKAI using input data with UniprotKB
+% protein identifiers instead of Ensembl. 
+% First, let's load the sample input having three columns:
+% - Protein: The UniprotkB identifier
 % - Position: The position of the site on the protein
 % - Quantification: The phosphorylation of the site as log2 fold change
-folder = 'data/';
-filePath = [folder, 'sample_phospho_data_ensembl.csv'];
+filePath = [folder, 'sample_phospho_data_uniprotkb.csv'];
 ds = datastore(filePath);
 ds.TextscanFormats = {'%q', '%q', '%f'};
 T = readall(ds);
 
-% Load network data mapped to Ensembl protein identifiers
-load([folder, 'rokai_network_data_ensembl.mat']);
+% Load network data prepared for Uniprotkb network identifiers
+load([folder, 'rokai_network_data_uniprotkb.mat']);
 
 % Add the source files to search path
 addpath('src/rokai');
@@ -60,7 +62,6 @@ options.IncludeCoevolution = false;
 options.IncludeMissingSites = true;
 
 [KinaseTableb, SiteTableb] = rokai(T, NetworkData, options);
-
 
 
 

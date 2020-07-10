@@ -1,15 +1,22 @@
-% The input data should contain three columns:
-% - Protein: The Ensembl protein (ENSP) identifier
-% - Position: The position of the site on the protein
+%% Running RoKAI with Flanking Sequence Identifiers
+% Here, we will run RoKAI using input data with flanking sequence
+% identifiers for phosphosites.
+% This time our sample input has only two columns:
+% - SiteFlanking: The +-7 flanking sequence of the site
 % - Quantification: The phosphorylation of the site as log2 fold change
-folder = 'data/';
-filePath = [folder, 'sample_phospho_data_ensembl.csv'];
+filePath = [folder, 'sample_phospho_data_flanking.csv'];
 ds = datastore(filePath);
-ds.TextscanFormats = {'%q', '%q', '%f'};
+ds.TextscanFormats = {'%q', '%f'};
 T = readall(ds);
 
-% Load network data mapped to Ensembl protein identifiers
-load([folder, 'rokai_network_data_ensembl.mat']);
+% Load network data prepared for Uniprotkb
+load([folder, 'rokai_network_data_uniprotkb.mat']);
+
+% Set the site identifier to flanking sequence
+NetworkData.Site.Identifier = NetworkData.Site.Flanking;
+
+% We can RoKAI by specifying the identifier type to be 'flanking'
+[KinaseTable, SiteTable] = rokai(T, NetworkData, 'Identifier', 'flanking');
 
 % Add the source files to search path
 addpath('src/rokai');
@@ -22,7 +29,7 @@ addpath('src/rokai');
 % (4) Activity: The inferred activity of the kinase based on the
 %  phosphorylation of sites in their functional neighborhood.
 % Note that, the table is sorted by kinase activites in descending order.
-[KinaseTable] = rokai(T, NetworkData);
+[KinaseTable] = rokai(T, NetworkData, 'Identifier', 'flanking');
 
 % The second output of RoKAI is a table containing the refined
 % phosphorylation profile after network propagation.
@@ -35,7 +42,7 @@ addpath('src/rokai');
 % Note that, the table is sorted by the absolute values of the refined
 % profile obtained by RoKAI. Thus, the sites on the top exhibit higher 
 % difference with the control sample.
-[KinaseTable, SiteTable] = rokai(T, NetworkData);
+[KinaseTable, SiteTable] = rokai(T, NetworkData, 'Identifier', 'flanking');
 %% Running RoKAI with customized options
 options = struct();
 
@@ -58,6 +65,9 @@ options.IncludeCoevolution = false;
 
 % Whether to keep missing sites without quantifications in the network
 options.IncludeMissingSites = true;
+
+% Set the input data identifier
+options.Identifier = 'Flanking';
 
 [KinaseTableb, SiteTableb] = rokai(T, NetworkData, options);
 

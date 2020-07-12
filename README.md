@@ -22,7 +22,7 @@ In the provided examples, we utilize the prospho-proteomics data within [the Atl
 To run RoKAI on your data, all you need is a single csv file having phosphosites identifiers and phosphorylation value (as log2 fold change). Overall, RoKAI desktop application accepts three types of phosphosite identifiers:
 
 #### Ensembl protein identifiers and position
-The sample in [demo_rokai.m](demo_rokai.m) script uses this type of identifiers. In this case, you need an input csv file that has three columns:
+The sample in [demo_rokai.m](demo_rokai.m) script (as well as the web application) uses this type of identifiers. In this case, you need an input csv file that has three columns:
 - Protein: The Ensembl protein (ENSP) identifier
 - Position: The position of the site on the protein
 - Quantification: The phosphorylation of the site as log2 fold change

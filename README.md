@@ -34,9 +34,11 @@ Alternatively, you can use UniprotKB protein identifiers and position informatio
 Finally, you can use the +-7 flanking sequence as phosphosite identifiers. These will be mapped to the reference phosphosites provided by [PhosphositePlus](https://www.phosphosite.org/staticDownloads). See the script [demo_rokai_flankseq.m](demo_rokai_flankseq.m) for an example that uses this type of data.
 
 ## References
-Yılmaz S., Ayati M., Schlatzer D., Çiçek E., Chance M. R., Koyutürk M. (2020) [Robust Inference of Kinase Activity Using Functional Networks](https://www.biorxiv.org/content/10.1101/2020.05.01.062802v1). Preprint in bioRxiv.
+For more information:
+- Yılmaz S., Ayati M., Schlatzer D., Çiçek E., Chance M. R., Koyutürk M. (2020) [Robust Inference of Kinase Activity Using Functional Networks](https://www.biorxiv.org/content/10.1101/2020.05.01.062802v1). Preprint in bioRxiv.
 
-Hornbeck, P. V. et al. (2015). [Phosphositeplus, 2014: mutations, ptms and recalibrations](https://academic.oup.com/nar/article/43/D1/D512/2439467). Nucleic acids research, 43(D1), D512–D520
-Minguez, P. et al. (2012). [Ptmcode: a database of known and predicted functional associations between post-translational modifications in proteins](https://academic.oup.com/nar/article/41/D1/D306/1069950). Nucleic acids research, 41(D1), D306–D311
-Szklarczyk, D. et al. (2014). [String v10: protein–protein interaction networks, integrated over the tree of life](https://academic.oup.com/nar/article/43/D1/D447/2435295). Nucleic acids research, 43(D1), D447–D452
+Resources used for functional networks:
+- Hornbeck, P. V. et al. (2015). [Phosphositeplus, 2014: mutations, ptms and recalibrations](https://academic.oup.com/nar/article/43/D1/D512/2439467). Nucleic acids research, 43(D1), D512–D520
+- Minguez, P. et al. (2012). [Ptmcode: a database of known and predicted functional associations between post-translational modifications in proteins](https://academic.oup.com/nar/article/41/D1/D306/1069950). Nucleic acids research, 41(D1), D306–D311
+- Szklarczyk, D. et al. (2014). [String v10: protein–protein interaction networks, integrated over the tree of life](https://academic.oup.com/nar/article/43/D1/D447/2435295). Nucleic acids research, 43(D1), D447–D452
 

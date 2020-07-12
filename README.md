@@ -31,7 +31,7 @@ The sample in [demo_rokai.m](demo_rokai.m) script uses this type of identifiers.
 Alternatively, you can use UniprotKB protein identifiers and position information to specify the phosphosites. See [demo_rokai_uniprotkb.m](demo_rokai_uniprotkb.m) script for an example on how to run RoKAI with this type of input data. In this case, you again need an input csv file that has three columns:
 
 #### Flanking sequence 
-Finally, you can use the +-7 flanking sequence as phosphosite identifiers. These will be mapped to the reference phosphosites provided by [PhosphositePlus](https://www.phosphosite.org/staticDownloads). See the script [demo_rokai_flankseq.m] for an example that uses this type of data.
+Finally, you can use the +-7 flanking sequence as phosphosite identifiers. These will be mapped to the reference phosphosites provided by [PhosphositePlus](https://www.phosphosite.org/staticDownloads). See the script [demo_rokai_flankseq.m](demo_rokai_flankseq.m) for an example that uses this type of data.
 
 ## References
 Yılmaz S., Ayati M., Schlatzer D., Çiçek E., Chance M. R., Koyutürk M. (2020) [Robust Inference of Kinase Activity Using Functional Networks](https://www.biorxiv.org/content/10.1101/2020.05.01.062802v1). Preprint in bioRxiv.

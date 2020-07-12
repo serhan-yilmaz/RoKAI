@@ -26,6 +26,7 @@ The sample in [demo_rokai.m](demo_rokai.m) script uses this type of identifiers.
 - Protein: The Ensembl protein (ENSP) identifier
 - Position: The position of the site on the protein
 - Quantification: The phosphorylation of the site as log2 fold change
+
 For more information, check our [sample data with Ensembl identifiers](sample_phospho_data_ensembl.csv).
 
 #### UniprotKB protein identifiers and position

@@ -37,7 +37,7 @@ Finally, you can use the +-7 flanking sequence as phosphosite identifiers. These
 The easiest way to run RoKAI is through the web application (at http://rokai.io) or by modifing the provided demo files to load your input files instead of the sample files. For more advanced cases that require an adaptation of source code (such as running RoKAI on networks other than the ones provided), you can refer to the provided [code schematic](rokai_source_code_schematic.pdf) that explains the code structure used. 
 
 #### Replicating the results of our study
-As another resource, we provide all materials (data and code) to reproduce the results of our study in [Figshare](https://doi.org/10.6084/m9.figshare.12644864). 
+As another resource, we provide all materials (data and code) to reproduce the results of our study in [Figshare](https://doi.org/10.6084/m9.figshare.12644864). These might be helpful for incorporating RoKAI into your analysis pipeline.
 
 ## References
 For more information on our study:

@@ -34,7 +34,7 @@ Alternatively, you can use UniprotKB protein identifiers and position informatio
 Finally, you can use the +-7 flanking sequence as phosphosite identifiers. These will be mapped to the reference phosphosites provided by [PhosphositePlus](https://www.phosphosite.org/staticDownloads). See the script [demo_rokai_flankseq.m](demo_rokai_flankseq.m) for an example that uses this type of data.
 
 ## References
-For more information:
+For more information on our study:
 - Yılmaz S., Ayati M., Schlatzer D., Çiçek E., Chance M. R., Koyutürk M. (2020) [Robust Inference of Kinase Activity Using Functional Networks](https://www.biorxiv.org/content/10.1101/2020.05.01.062802v1). Preprint in bioRxiv.
 
 Resources used for functional networks:

@@ -26,12 +26,13 @@ The sample in [demo_rokai.m](demo_rokai.m) script uses this type of identifiers.
 - Protein: The Ensembl protein (ENSP) identifier
 - Position: The position of the site on the protein
 - Quantification: The phosphorylation of the site as log2 fold change
+For more information, check our [sample data with Ensembl identifiers](sample_phospho_data_ensembl.csv).
 
 #### UniprotKB protein identifiers and position
-Alternatively, you can use UniprotKB protein identifiers and position information to specify the phosphosites. See [demo_rokai_uniprotkb.m](demo_rokai_uniprotkb.m) script for an example on how to run RoKAI with this type of input data. In this case, you again need an input csv file that has three columns:
+Alternatively, you can use UniprotKB protein identifiers and position information to specify the phosphosites. See the [sample data](sample_phospho_data_uniprotkb.csv) and [demo_rokai_uniprotkb.m](demo_rokai_uniprotkb.m) script for an example on how to run RoKAI with this type of input data.
 
 #### Flanking sequence 
-Finally, you can use the +-7 flanking sequence as phosphosite identifiers. These will be mapped to the reference phosphosites provided by [PhosphositePlus](https://www.phosphosite.org/staticDownloads). See the script [demo_rokai_flankseq.m](demo_rokai_flankseq.m) for an example that uses this type of data.
+Finally, you can use the +-7 flanking sequence as phosphosite identifiers. These will be mapped to the reference phosphosites provided by [PhosphositePlus](https://www.phosphosite.org/staticDownloads). See the script [demo_rokai_flankseq.m](demo_rokai_flankseq.m) and [sample data with this type of identifiers](sample_phospho_data_flanking.csv)
 
 ### For more advanced use cases
 The easiest way to run RoKAI is through the web application (at http://rokai.io) or by modifing the provided demo files to load your input files instead of the sample files. For more advanced cases that require an adaptation of source code (such as running RoKAI on networks other than the ones provided), you can refer to the provided [code schematic](rokai_source_code_schematic.pdf) that explains the code structure used. 

@@ -4,6 +4,6 @@ Traditional algorithms for kinase activity inference use condition-specific phos
 ![](rokai_workflow.png "RoKAI Workflow")
 
 ## The hypothesis behind RoKAI
-We hypothesize that the dysregulation of a kinase happens as a result of a coordinated change in the signaling rather than an individual event. Therefore, the phosphorylation of sites in the functional neighborhood of a kinase can be predictive of its activity. By propagating site phosphorylations over functional networks, we aim to generate refined profiles capturing the coordinated changes.
+We hypothesize that the dysregulation of a kinase happens as a result of a coordinated change in the signaling rather than an individual event. Therefore, the phosphorylation of sites in the functional neighborhood of a kinase can be predictive of its activity. By propagating site phosphorylations over functional networks, RoKAI aims to generate refined profiles capturing the coordinated changes that can be used to improve the reliability of kinase activity inference.
 ![](rokai_functional_neighborhood.png "RoKAI Functional Neighborhood")
 

@@ -1,4 +1,4 @@
-function [Site] = sitetable(Site, Xrefined, Xraw, Wkin2site)
+function [Site] = sitetable(Site, Xraw, Xrefined, Wkin2site)
     Site.RoKAI_Q = Xrefined;    
     Site.Raw_Q = Xraw;
     

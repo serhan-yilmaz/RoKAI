@@ -43,7 +43,7 @@ We provide all materials (data and code) to reproduce the results of our study i
 
 ## References
 For more information on our study:
-- Yılmaz S., Ayati M., Schlatzer D., Çiçek E., Chance M. R., Koyutürk M. (2021) [Robust Inference of Kinase Activity Using Functional Networks](https://doi.org/10.1038/s41467-021-21211-6). Nature Communications, 12 (1117)
+- Yılmaz S., Ayati M., Schlatzer D., Çiçek A. E., Chance M. R., Koyutürk M. (2021) [Robust Inference of Kinase Activity Using Functional Networks](https://doi.org/10.1038/s41467-021-21211-6). Nature Communications, 12 (1117)
 
 Resources used for functional networks:
 - Hornbeck, P. V. et al. (2015). [Phosphositeplus, 2014: mutations, ptms and recalibrations](https://academic.oup.com/nar/article/43/D1/D512/2439467). Nucleic acids research, 43(D1), D512–D520
